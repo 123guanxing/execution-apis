@@ -1,5 +1,8 @@
 apis
 attributesv
+bodyv
+bodiesbyrangev
+bodiesbyhashv
 bytecode
 configurationv
 crypto
@@ -11,6 +14,7 @@ ethereum
 interop
 json
 mempool
+merkle
 npm
 ommers
 openrpc
@@ -39,5 +43,17 @@ JWT
 WS
 ipc
 cli
+blobsbundlev
+getblobsbundlev
+ssz
+kzg
 besu
 graphql
+gwei
+withdrawalv
+DocToc
+prevrandao
+randao
+src
+https
+forkchoiceupdatedresponsev

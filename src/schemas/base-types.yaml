@@ -15,6 +15,10 @@ bytes:
   title: hex encoded bytes
   type: string
   pattern: ^0x[0-9a-f]*$
+bytesMax32:
+  title: 32 hex encoded bytes
+  type: string
+  pattern: ^0x[0-9a-f]{0,64}$
 bytes8:
   title: 8 hex encoded bytes
   type: string
@@ -23,6 +27,10 @@ bytes32:
   title: 32 hex encoded bytes
   type: string
   pattern: ^0x[0-9a-f]{64}$
+bytes48:
+  title: 48 hex encoded bytes
+  type: string
+  pattern: ^0x[0-9a-f]{96}$
 bytes256:
   title: 256 hex encoded bytes
   type: string
@@ -30,16 +38,28 @@ bytes256:
 bytes65:
   title: 65 hex encoded bytes
   type: string
-  pattern: ^0x[0-9a-f]{512}$
+  pattern: ^0x[0-9a-f]{130}$
+ratio:
+  title: normalized ratio
+  type: number
+  minimum: 0
+  maximum: 1
 uint:
   title: hex encoded unsigned integer
   type: string
   pattern: ^0x([1-9a-f]+[0-9a-f]*|0)$
-uint256:
-  title: hex encoded unsigned integer
+uint64:
+  title: hex encoded 64 bit unsigned integer
   type: string
-  pattern: ^0x[0-9a-f]{64}$
+  pattern: ^0x([1-9a-f]+[0-9a-f]{0,15})|0$
+uint256:
+  title: hex encoded 256 bit unsigned integer
+  type: string
+  pattern: ^0x([1-9a-f]+[0-9a-f]{0,31})|0$
 hash32:
   title: 32 byte hex value
   type: string
   pattern: ^0x[0-9a-f]{64}$
+notFound:
+  title: 'Not Found (null)'
+  type: 'null'

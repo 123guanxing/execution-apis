@@ -8,7 +8,7 @@
     - name: Block
       required: false
       schema:
-        $ref: '#/components/schemas/BlockNumberOrTag'
+        $ref: '#/components/schemas/BlockNumberOrTagOrHash'
   result:
     name: Balance
     schema:
@@ -27,7 +27,7 @@
     - name: Block
       required: false
       schema:
-        $ref: '#/components/schemas/BlockNumberOrTag'
+        $ref: '#/components/schemas/BlockNumberOrTagOrHash'
   result:
     name: Value
     schema:
@@ -42,14 +42,11 @@
     - name: Block
       required: false
       schema:
-        $ref: '#/components/schemas/BlockNumberOrTag'
+        $ref: '#/components/schemas/BlockNumberOrTagOrHash'
   result:
     name: Transaction count
     schema:
-      title: Transaction count
-      type: array
-      items:
-        $ref: '#/components/schemas/uint'
+      $ref: '#/components/schemas/uint'
 - name: eth_getCode
   summary: Returns code at a given address.
   params:
@@ -60,8 +57,30 @@
     - name: Block
       required: false
       schema:
-        $ref: '#/components/schemas/BlockNumberOrTag'
+        $ref: '#/components/schemas/BlockNumberOrTagOrHash'
   result:
     name: Bytecode
     schema:
       $ref: '#/components/schemas/bytes'
+- name: eth_getProof
+  summary: Returns the merkle proof for a given account and optionally some storage keys.
+  params:
+    - name: Address
+      required: true
+      schema:
+        $ref: '#/components/schemas/address'
+    - name: StorageKeys
+      required: true
+      schema:
+        title: Storage keys
+        type: array
+        items:
+          $ref: '#/components/schemas/bytesMax32'
+    - name: Block
+      required: true
+      schema:
+        $ref: '#/components/schemas/BlockNumberOrTagOrHash'
+  result:
+    name: Account
+    schema:
+      $ref: '#/components/schemas/AccountProof'
